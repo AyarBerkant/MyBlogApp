@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MyBlogApp.Shared.Data.Abstarct;
 using MyBlogApp.Shared.Entities.Abstarct;
-
+  
 namespace MyBlogApp.Shared.Data.Concrete.EntityFramework
 {
     public class EFEntityRepositoryBase<TEntity> : IEntityRepository<TEntity> where TEntity : class, IEntity, new()

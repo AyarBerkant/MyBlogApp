@@ -9,7 +9,7 @@ using MyBlogApp.Entities.Concrete;
 
 namespace MyBlogApp.Data.Concrete.EntityFramework.Mappings
 {
-    public class CommentMap:IEntityTypeConfiguration<Comment>
+    public class CommentMap : IEntityTypeConfiguration<Comment>
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
@@ -28,6 +28,49 @@ namespace MyBlogApp.Data.Concrete.EntityFramework.Mappings
             builder.Property(c => c.IsDeleted).IsRequired();
             builder.Property(c => c.Note).HasMaxLength(500);
             builder.ToTable("Comments");
+
+            builder.HasData(
+                new Comment
+                {
+                    Id = 1,
+                    ArticleId = 1,
+                    Text = "Yorum 1 Article 1",
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now,
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "C# ilk yorum",
+                },
+                new Comment
+                {
+                    Id = 2,
+                    ArticleId = 2,
+                    Text = "Yorum 2 Article 2",
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now,
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "C++ ilk yorum",
+                },
+                new Comment
+                {
+                    Id = 3,
+                    ArticleId = 3,
+                    Text = "Yorum 3 Article 3",
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now,
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "JavaScript ilk yorum",
+                }
+
+            );
         }
     }
 }

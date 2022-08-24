@@ -20,7 +20,7 @@ namespace MyBlogApp.Data.Concrete.EntityFramework.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=DESKTOP-9HMKFF5;Initial Catalog=MyBlogApp;User ID=sa;Password=Berkant123*S;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                @"Data Source=DESKTOP-9HMKFF5;Initial Catalog=MyBlogApp;User ID=sa;Password=Berkant123*;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

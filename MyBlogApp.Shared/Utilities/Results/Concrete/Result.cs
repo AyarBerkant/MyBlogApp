@@ -14,7 +14,11 @@ namespace MyBlogApp.Shared.Utilities.Results.Concrete
         {
             ResultStatus = resultStatus;
         }
-
+        public Result(ResultStatus resultStatus,string message)
+        {
+            ResultStatus = resultStatus;
+            Message = message;
+        }
         public Result(ResultStatus resultStatus, string message, Exception exception)
         {
             ResultStatus = resultStatus;

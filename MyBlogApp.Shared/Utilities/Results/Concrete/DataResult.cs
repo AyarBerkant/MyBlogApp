@@ -8,21 +8,31 @@ using MyBlogApp.Shared.Utilities.Results.ComplexTypes;
 
 namespace MyBlogApp.Shared.Utilities.Results.Concrete
 {
-    public class Result:IResult
+    public class DataResult<T>:IDataResult<T>
     {
-        public Result(ResultStatus resultStatus)
+        public DataResult(ResultStatus resultStatus,T data)
         {
             ResultStatus = resultStatus;
+            Data = data;
         }
-
-        public Result(ResultStatus resultStatus, string message, Exception exception)
+        public DataResult(ResultStatus resultStatus,string message, T data)
         {
             ResultStatus = resultStatus;
             Message = message;
+            Data = data;
+
+        }
+        public DataResult(ResultStatus resultStatus, string message, T data, Exception exception)
+        {
+            ResultStatus = resultStatus;
+            Message = message;
+            Data = data;
             Exception = exception;
         }
+
         public ResultStatus ResultStatus { get; }
         public string Message { get; }
         public Exception Exception { get; }
+        public T Data { get; }
     }
 }

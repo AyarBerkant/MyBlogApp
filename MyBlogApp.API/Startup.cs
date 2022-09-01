@@ -10,7 +10,11 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using AutoMapper;
+using MyBlogApp.Services.AutoMapper.Profiles;
+using MyBlogApp.Services.Extensions;
 
 namespace MyBlogApp.API
 {
@@ -26,7 +30,10 @@ namespace MyBlogApp.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+            services.AddAutoMapper(typeof(CategoryProfile),typeof(ArticleProfile));
+            services.LoadMyServices(connectionString: Configuration.GetConnectionString("LocalDB"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -22,7 +22,7 @@ namespace MyBlogApp.Shared.Data.Concrete.EntityFramework
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includeProperties)
         {
             IQueryable<TEntity> query = _context.Set<TEntity>();
-            if (predicate! == null)
+            if (predicate != null)
             {
                 query = query.Where(predicate);
             }
@@ -40,7 +40,7 @@ namespace MyBlogApp.Shared.Data.Concrete.EntityFramework
         public async Task<IList<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null, params Expression<Func<TEntity, object>>[] includeProperties)
         {
             IQueryable<TEntity> query = _context.Set<TEntity>();
-            if (predicate! == null)
+            if (predicate != null)
             {
                 query = query.Where(predicate);
             }

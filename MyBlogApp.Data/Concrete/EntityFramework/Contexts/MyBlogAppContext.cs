@@ -17,13 +17,18 @@ namespace MyBlogApp.Data.Concrete.EntityFramework.Contexts
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(
+        //        @"Data Source=DESKTOP-9HMKFF5;Initial Catalog=MyBlogApp;User ID=sa;Password=Berkant123*;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        public MyBlogAppContext(DbContextOptions<MyBlogAppContext> options):base(options)
         {
-            optionsBuilder.UseSqlServer(
-                @"Data Source=DESKTOP-9HMKFF5;Initial Catalog=MyBlogApp;User ID=sa;Password=Berkant123*;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
             modelBuilder.ApplyConfiguration(new ArticleMap());
             modelBuilder.ApplyConfiguration(new CategoryMap());

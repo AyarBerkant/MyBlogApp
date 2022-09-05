@@ -33,7 +33,7 @@ namespace MyBlogApp.Entities.Dtos
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
         [MinLength(0, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
-        public string SeoAuthor { get; set; }
+        public string SeoAtuhor { get; set; }
         [DisplayName("Seo Açıklama")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         [MaxLength(150, ErrorMessage = "{0} alanı {1} karakterden büyük olmamalıdır.")]
@@ -47,7 +47,7 @@ namespace MyBlogApp.Entities.Dtos
         [DisplayName("Kategori")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int CategoryId { get; set; }
-        public Category  Category { get; set; }
+        //public Category  Category { get; set; }
         [DisplayName("Aktif Mi")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public bool IsActive { get; set; }
